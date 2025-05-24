@@ -20,6 +20,9 @@ function updateSegment(seg) {
 
   if (!text) return;
 
+  // Skip if there's no Chinese in the segment
+  if (!/[\u4e00-\u9fff]/.test(text)) return;
+
   // 1. Get existing overlay or create one
   let overlay = seg.querySelector(".pinyin-overlay");
   if (!overlay) {
